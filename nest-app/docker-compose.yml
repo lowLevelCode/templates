@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  database:
+    image: "postgres:latest"
+    environment:
+      POSTGRES_USER: ${POSTGRES_ADMIN_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_ADMIN_DB}
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
